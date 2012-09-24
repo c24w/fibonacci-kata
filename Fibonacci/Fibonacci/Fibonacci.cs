@@ -11,10 +11,15 @@ namespace Fibonacci
     {
 
         [Test]
-        public void Dumb_test()
+        public void First_number_should_be_one()
         {
-            Assert.That(true, Is.EqualTo(true));
+            var nth = GetFibonacci(1);
+            Assert.That(nth, Is.EqualTo(1));
         }
 
+        private int GetFibonacci(int n)
+        {
+            return 1;
+        }
     }
 }
