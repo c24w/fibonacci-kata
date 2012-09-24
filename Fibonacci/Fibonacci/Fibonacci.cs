@@ -27,10 +27,17 @@ namespace Fibonacci
             Assert.That(nth, Is.EqualTo(2));
         }
 
+        [Test]
+        public void Fifth_number_should_be_5()
+        {
+            var nth = GetFibonacci(5);
+            Assert.That(nth, Is.EqualTo(5));
+        }
+
         private int GetFibonacci(int i)
         {
             if (i < 3) return 1;
-            return i - 1;
+            return GetFibonacci(i - 1) + GetFibonacci(i - 2);
         }
     }
 }
