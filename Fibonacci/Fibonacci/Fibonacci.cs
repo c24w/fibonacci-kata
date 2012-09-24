@@ -29,16 +29,8 @@ namespace Fibonacci
 
         private int GetFibonacci(int i)
         {
-            switch (i)
-            {
-                case 1:
-                case 2:
-                    return 1;
-                case 3:
-                    return 2;
-                default:
-                    return 0;
-            }
+            if (i < 3) return 1;
+            return i - 1;
         }
     }
 }
