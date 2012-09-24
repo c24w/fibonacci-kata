@@ -5,39 +5,41 @@ namespace Fibonacci
     [TestFixture]
     class Fibonacci
     {
+        private FibonacciGenerator _generator;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _generator = new FibonacciGenerator();
+        }
 
         [Test]
         public void First_number_should_be_one()
         {
-            var nth = GetFibonacci(1);
+            var nth = _generator.GetFibonacci(1);
             Assert.That(nth, Is.EqualTo(1));
         }
 
         [Test]
         public void Second_number_should_be_one()
         {
-            var nth = GetFibonacci(2);
+            var nth = _generator.GetFibonacci(2);
             Assert.That(nth, Is.EqualTo(1));
         }
 
         [Test]
         public void Third_number_should_be_2()
         {
-            var nth = GetFibonacci(3);
+            var nth = _generator.GetFibonacci(3);
             Assert.That(nth, Is.EqualTo(2));
         }
 
         [Test]
         public void Fifth_number_should_be_5()
         {
-            var nth = GetFibonacci(5);
+            var nth = _generator.GetFibonacci(5);
             Assert.That(nth, Is.EqualTo(5));
         }
 
-        private int GetFibonacci(int i)
-        {
-            if (i < 3) return 1;
-            return GetFibonacci(i - 1) + GetFibonacci(i - 2);
-        }
     }
 }
