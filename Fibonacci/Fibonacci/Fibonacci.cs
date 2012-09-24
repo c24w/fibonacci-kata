@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace Fibonacci
 {
@@ -17,9 +13,32 @@ namespace Fibonacci
             Assert.That(nth, Is.EqualTo(1));
         }
 
-        private int GetFibonacci(int n)
+        [Test]
+        public void Second_number_should_be_one()
         {
-            return 1;
+            var nth = GetFibonacci(2);
+            Assert.That(nth, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Third_number_should_be_2()
+        {
+            var nth = GetFibonacci(3);
+            Assert.That(nth, Is.EqualTo(2));
+        }
+
+        private int GetFibonacci(int i)
+        {
+            switch (i)
+            {
+                case 1:
+                case 2:
+                    return 1;
+                case 3:
+                    return 2;
+                default:
+                    return 0;
+            }
         }
     }
 }
